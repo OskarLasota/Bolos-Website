@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import logo from './bolos_logo.png';
 import Portfolio from './components/Portfolio.jsx'
 import Footer1 from './components/Footer1.jsx'
 import Footer2 from './components/Footer2.jsx'
+import Error from './components/Error';
+import Home from './components/Home';
+import Browse from './components/Browse';
+import Pricing from './components/Pricing';
 import Navigation from './components/Navigation.js';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
 import './App.css';
@@ -53,13 +57,21 @@ class App extends Component {
 
 
 
-<Navigation />
 
 
 
-  <div className="container">
-    <img class="rounded mx-auto d-block" id="logo" src={logo} alt="logo can't be loaded"></img>
-  </div>
+
+<BrowserRouter>
+    <div>
+    <Navigation />
+      <Switch>
+        <Route path="/home" component={Home} exact/>
+        <Route path="/browse" component={Browse} />
+        <Route path="/pricing" component={Pricing} />
+        <Route component={Error}/>
+      </Switch>
+    </div>
+</BrowserRouter>
 
 
 
