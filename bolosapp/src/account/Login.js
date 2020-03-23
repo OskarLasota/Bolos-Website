@@ -170,6 +170,11 @@ class RegisterBox extends React.Component {
                                 <input type="password" name="password" className="login-input" placeholder="Password"  onChange={this.onPasswordChange.bind(this)}/>
                                 <small>{passwordErr ? passwordErr : ""}</small>
                             </div>
+                            <div className="form-group">
+                                <label htmlFor="password"></label>
+                                <input type="password" name="password" className="login-input" placeholder="Password"  onChange={this.onPasswordChange.bind(this)}/>
+                                <small>{passwordErr ? passwordErr : ""}</small>
+                            </div>
                             <button type="submit" className="form-control btn-login" onClick={this.submitRegister.bind(this)}> Register </button>
                
                     </div>
