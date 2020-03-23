@@ -98,27 +98,30 @@ class RegisterBox extends React.Component {
         this.setState((prevState) => ({errors: [...prevState.errors,{elm, msg}]} ));
     }
 
-    clearValidationErr(elm){
+    clearValidationErr(elm) {
         this.setState((prevState) => {
-            let newArr = [];
-            for(let err of this.state.errors){
-                if(elm != err.elem){
-                    newArr.push(err);
-                }
+          let newArr = [];
+          for (let err of prevState.errors) {
+            if (elm != err.elm) {
+              newArr.push(err);
             }
-            return newArr;
+          }
+          return {errors: newArr};
         });
-    }
+      }
 
 
     onUsernameChange(e){
         this.setState({username: e.target.value });
+        this.clearValidationErr("username");
     }
     onEmailChange(e){
         this.setState({email: e.target.value });
+        this.clearValidationErr("email");
     }
     onPasswordChange(e){
         this.setState({password: e.target.value });
+        this.clearValidationErr("password");
     }
 
     submitRegister(e){
