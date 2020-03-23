@@ -129,29 +129,46 @@ class RegisterBox extends React.Component {
         }else if(this.state.password == ""){
             return this.showValidationErr("Password", "Password cannot be empty");
         }
-        
+
     }
 
     render(){
+        let usernameErr = null, passwordErr = null, emailErr = null;
+
+        for(let err of this.state.errors){
+            if(err.elm == "username"){
+                usernameErr = err.msg;
+            }
+            if(err.elm == "password"){
+                passwordErr = err.msg;
+            }
+            if(err.elm =="email"){
+                emailErr = err.msg;
+            }
+        }
+
         return(
             <div className="panel-body">
                 <div className="d-flex justify-content-center">
                     <div className="col-lg-12">
-                        <form>
+
                             <div className="form-group">
                                 <label htmlFor="username"></label>
                                 <input type="text" name="username" className="login-input" placeholder="Username" onChange={this.onUsernameChange.bind(this)}/>
+                                <small>{usernameErr ? usernameErr : ""}</small>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="password"></label>
                                 <input type="password" name="password" className="login-input" placeholder="Password"  onChange={this.onPasswordChange.bind(this)}/>
+                                <small>{passwordErr ? passwordErr : ""}</small>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="email"></label>
                                 <input type="text" name="email" className="login-input" placeholder="Email"  onChange={this.onEmailChange.bind(this)}/>
+                                <small>{emailErr ? emailErr : ""}</small>
                             </div>
                             <button type="submit" className="form-control btn-login" onClick={this.submitRegister.bind(this)}> Register </button>
-                        </form>
+               
                     </div>
                 </div>
             </div>
