@@ -28,7 +28,7 @@ class Navigation extends React.Component{
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                            <NavLink to="/home">Home</NavLink>
+                            <NavLink to="/">Home</NavLink>
                             <NavLink to="/browse">Browse</NavLink>
                             <NavLink to="/pricing">Pricing</NavLink>
                             <NavLink to="/contact">Contact us</NavLink>
