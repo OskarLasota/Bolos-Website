@@ -112,22 +112,22 @@ class RegisterBox extends React.Component {
 
 
     onUsernameChange(e){
-        this.state({username: e.target.value });
+        this.setState({username: e.target.value });
     }
     onEmailChange(e){
-        this.state({email: e.target.value });
+        this.setState({email: e.target.value });
     }
     onPasswordChange(e){
-        this.state({password: e.target.value });
+        this.setState({password: e.target.value });
     }
 
     submitRegister(e){
         if(this.state.username == ""){
-            return this.showValidationErr("username", "Username cannot be empty");
-        }else if(this.state.email == ""){
-            return this.showValidationErr("email", "Email cannot be empty");
-        }else if(this.state.password == ""){
-            return this.showValidationErr("Password", "Password cannot be empty");
+            this.showValidationErr("username", "Username cannot be empty");
+        }if(this.state.email == ""){
+            this.showValidationErr("email", "Email cannot be empty");
+        }if(this.state.password == ""){
+            this.showValidationErr("password", "Password cannot be empty");
         }
 
     }
@@ -158,14 +158,14 @@ class RegisterBox extends React.Component {
                                 <small>{usernameErr ? usernameErr : ""}</small>
                             </div>
                             <div className="form-group">
-                                <label htmlFor="password"></label>
-                                <input type="password" name="password" className="login-input" placeholder="Password"  onChange={this.onPasswordChange.bind(this)}/>
-                                <small>{passwordErr ? passwordErr : ""}</small>
-                            </div>
-                            <div className="form-group">
                                 <label htmlFor="email"></label>
                                 <input type="text" name="email" className="login-input" placeholder="Email"  onChange={this.onEmailChange.bind(this)}/>
                                 <small>{emailErr ? emailErr : ""}</small>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="password"></label>
+                                <input type="password" name="password" className="login-input" placeholder="Password"  onChange={this.onPasswordChange.bind(this)}/>
+                                <small>{passwordErr ? passwordErr : ""}</small>
                             </div>
                             <button type="submit" className="form-control btn-login" onClick={this.submitRegister.bind(this)}> Register </button>
                
