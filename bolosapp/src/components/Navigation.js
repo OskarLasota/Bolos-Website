@@ -31,11 +31,12 @@ class Navigation extends React.Component{
                             <NavLink to="/home">Home</NavLink>
                             <NavLink to="/browse">Browse</NavLink>
                             <NavLink to="/pricing">Pricing</NavLink>
+                            <NavLink to="/contact">Contact us</NavLink>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account 
                                 </a>
                             <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                                <NavLink class="dropdown-item" to="#">Action</NavLink>
+                                <NavLink class="dropdown-item" to="/login">log in</NavLink>
                                 <NavLink class="dropdown-item" to="#">Another action</NavLink>
                                 <NavLink class="dropdown-item" to="#">Something else here</NavLink>
                             </div>
